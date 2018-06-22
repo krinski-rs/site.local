@@ -1,3 +1,9 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+post_usuario:
+    path: /teste
+    controller: 'App\Controller\TesteController::index'
+    methods: [POST, GET]
+    defaults:
+        _format: html

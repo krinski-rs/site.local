@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		
+		<title>TutsUP - Layout Responsivo</title>
+		
+        <style>
+        	body {
+        		margin: 0px;
+        	}
+        	.container {
+            	width: 100vw;
+            	height: 100vh;
+            	background: #6C7A89;
+            	display: flex;
+            	flex-direction: row;
+            	justify-content: center;
+            	align-items: center;
+        	}
+        	.box {
+            	width: 300px;
+            	height: 100px;
+            	background: #fff;
+        	}
+        	.interna {
+        		margin: 7px auto;
+        		width: 100%; /* Valor da Largura */
+        	}
+        	button{
+        		margin-left:50%;
+        		margin-right:50%;
+        		position: relative;
+        	}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="box">
+        		<form name="login" action="http://sso.local/auth/login" method="post">
+        			<div class="interna">
+        				<label for="name" style="width: 30% !important; display: inline-block; text-align: left;">Username</label>
+        				<input type="text" id="username" name="username" style="width: 66% !important; display: inline-block;"/>
+        			</div>
+        			<div class="interna">
+        				<label for="password" class="interna" style="width: 30% !important; display: inline-block; text-align: left;">Password</label>
+        				<input type="password" id="password" name="password" style="width: 66% !important; display: inline-block;"/>
+        			</div>
+        			<div class="interna">
+        				<button type="submit">Login</button>
+        			</div>
+        		</form>
+			</div>
+		</div>
+		<div class="footer">
+			&copy; Copyright 2018 | Todos os direitos reservados
+		</div>
+	</body>
+</html>
