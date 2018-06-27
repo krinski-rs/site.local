@@ -7,3 +7,8 @@ post_usuario:
     methods: [POST, GET]
     defaults:
         _format: html
+post_login:
+    path: /auth
+    controller: 'App\Controller\TesteController::auth'
+    methods: [POST]
+        
