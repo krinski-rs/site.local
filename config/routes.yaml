@@ -11,4 +11,9 @@ post_login:
     path: /auth
     controller: 'App\Controller\TesteController::auth'
     methods: [POST]
+    
+home:
+    path: /home
+    controller: 'App\Controller\TesteController::home'
+    methods: [GET]
         

@@ -29,9 +29,22 @@ class TesteController extends Controller
     {
         try {
             $objSSOClient = new SSOClient($objRequest);
-            $objSSOClient->login();
-            exit();
-            return new Response('');
+            return $objSSOClient->login();
+        } catch (\RuntimeException $e) {
+            return new JsonResponse(['mensagem'=>$e->getMessage()], Response::HTTP_PRECONDITION_FAILED);
+        } catch (\Exception $e) {
+            return new JsonResponse(['mensagem'=>$e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+        
+    }
+    
+    public function home(Request $objRequest)
+    {
+        try {
+            return $this->render(
+                'site.html.twig',
+                [ ]
+            );
         } catch (\RuntimeException $e) {
             return new JsonResponse(['mensagem'=>$e->getMessage()], Response::HTTP_PRECONDITION_FAILED);
         } catch (\Exception $e) {
