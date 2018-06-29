@@ -3,6 +3,7 @@ namespace App\Service\SSO;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Cookie;
 
 /**
  *
@@ -79,8 +80,14 @@ class SSOClient
             $userData = json_decode($retorno, true);
             $objSession = $this->objRequest->getSession();
             $objSession->set('userData', json_decode($retorno));
+            
+            
+            $now = new \DateTime('now', new \DateTimeZone('America/Sao_Paulo'));
+            $now->modify('+ 1 day');
+            
+            $objCookie = new Cookie(self::SSO_COOKIE_NAME, $userData['AccessToken'], $now->getTimestamp(), '/', 'site.local');
             $objResponse = new RedirectResponse('/home',302);
-            $objResponse->headers->set('Set-Cookie', self::SSO_COOKIE_NAME . '=' . $userData['AccessToken']);
+            $objResponse->headers->setCookie($objCookie);
         } else {
             $objResponse = new RedirectResponse('/teste',302);
         }
