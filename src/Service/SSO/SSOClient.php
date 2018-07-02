@@ -22,12 +22,13 @@ class SSOClient
     const METHOD_PATCH      = 'PATCH';
     const METHOD_DELETE     = 'DELETE';
     
-    const SSO_LOGIN         = 'http://sso.local/auth/login';
+    const SSO_LOGIN         = 'http://sso.local.com/auth/login';
     const SSO_USER_AGENT    = 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.2 (KHTML, like Gecko) Chrome/22.0.1216.0 Safari/537.2';
     const SSO_AUTH_VERSION  = 'V1';
     const SSO_ORIGIN        = 'http://site.local';
     const SSO_API_KEY       = '3ada8f87cef4d41dbb385e41d0d55305b649161b';
     const SSO_COOKIE_NAME   = 'sso';
+    const SSO_COOKIE_DOMAIN = 'local.com';
     
     public function __construct(Request $objRequest)
     {
@@ -85,7 +86,7 @@ class SSOClient
             $now = new \DateTime('now', new \DateTimeZone('America/Sao_Paulo'));
             $now->modify('+ 1 day');
             
-            $objCookie = new Cookie(self::SSO_COOKIE_NAME, $userData['AccessToken'], $now->getTimestamp(), '/', 'site.local');
+            $objCookie = new Cookie(self::SSO_COOKIE_NAME, $userData['AccessToken'], $now->getTimestamp(), '/', self::SSO_COOKIE_DOMAIN);
             $objResponse = new RedirectResponse('/home',302);
             $objResponse->headers->setCookie($objCookie);
         } else {
