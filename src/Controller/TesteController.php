@@ -16,7 +16,9 @@ class TesteController extends Controller
             $helper = $this->get('security.authentication_utils');
             return $this->render(
                 'login.html.twig',
-                [ ]
+                [
+                    'title' => 'xupem pausen'
+                ]
             );
         } catch (\RuntimeException $e) {
             return new JsonResponse(['mensagem'=>$e->getMessage()], Response::HTTP_PRECONDITION_FAILED);
