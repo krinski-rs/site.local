@@ -45,7 +45,13 @@ class TesteController extends Controller
         try {
             return $this->render(
                 'site.html.twig',
-                [ ]
+                [
+                    'title'     => 'xupem pausen',
+                    'footer'    => '<p>&copy;&nbsp;Reinaldo Krinski&nbsp;2018&nbsp;</p>',
+                    'content'   => [
+                        'title' => 'Dashboard'
+                    ]
+                ]
             );
         } catch (\RuntimeException $e) {
             return new JsonResponse(['mensagem'=>$e->getMessage()], Response::HTTP_PRECONDITION_FAILED);
