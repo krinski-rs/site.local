@@ -47,6 +47,27 @@ class TesteController extends Controller
                 'site.html.twig',
                 [
                     'title'     => 'xupem pausen',
+                    'top'       => [
+                        'logo'  => '/img/logo.png'
+                    ],
+                    'menus'     => [
+                        [
+                            'href'      => '#',
+                            'total'     => '2',
+                            'icon'      => 'icon-envelope-alt',
+                            'submenus'  => [
+                                [
+                                    'href'      => '#',
+                                    'name'      => 'John Smith2',
+                                    'info'      => 'Today',
+                                    'text'      => 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+                                    'class'     => 'label-primary',
+                                    'label'     => 'Important',
+                                    'divider'   => false
+                                ]
+                            ]
+                        ]
+                    ],
                     'footer'    => '<p>&copy;&nbsp;Reinaldo Krinski&nbsp;2018&nbsp;</p>',
                     'content'   => [
                         'title' => 'Dashboard'
