@@ -1,0 +1,14 @@
+{% block block_messages %}
+										<div>
+											<strong>{{ subMenu.desc }}</strong>
+											<span class="pull-right text-muted">
+												<em>{{ subMenu.info }}</em>
+											</span>
+										</div>
+										<div>
+											{{ subMenu.text }}
+											<br />
+											<span class="label {{ subMenu.labelClass }}">{{ subMenu.label }}</span>
+										</div>
+{% endblock %}
+

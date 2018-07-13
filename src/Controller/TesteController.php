@@ -50,28 +50,60 @@ class TesteController extends Controller
                     'top'       => [
                         'logo'  => '/img/logo.png'
                     ],
-                    'menus'     => [
+                    'menuTop'     => [
                         [
-                            'href'      => '#',
-                            'total'     => '2',
-                            'icon'      => 'icon-envelope-alt',
-                            'submenus'  => [
+                            'labelClass'    => 'label-success',
+                            'labelTotal'    => '0',
+                            'class'         => 'dropdown-messages',
+                            'icon'          => 'icon-envelope-alt',
+                            'subMenus'       => [
                                 [
-                                    'href'      => '#',
-                                    'name'      => 'John Smith2',
-                                    'info'      => 'Today',
-                                    'text'      => 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
-                                    'class'     => 'label-primary',
-                                    'label'     => 'Important',
-                                    'divider'   => false
-                                ]
+                                    'class' => 'dropdown-messages',
+                                    'menu'  => [
+                                        [
+                                            'desc'          => 'John Smith',
+                                            'info'          => 'Today',
+                                            'text'          => 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+                                            'label'         => 'Important',
+                                            'labelClass'    => 'label-primary'
+                                        ]
+                                    ]
+                                ],
+                            ]
+                        ],
+                        [
+                            'labelClass'    => 'label-danger',
+                            'labelTotal'    => '1',
+                            'class'         => 'dropdown-tasks',
+                            'icon'          => 'icon-tasks',
+                            'subMenus'       => [
+                                'class' => 'dropdown-tasks',
+                                'menu'  => []
+                            ]
+                        ],
+                        [
+                            'labelClass'    => 'label-info',
+                            'labelTotal'    => '2',
+                            'class'         => 'dropdown-alerts',
+                            'icon'          => 'icon-comments',
+                            'subMenus'       => [
+                                'class' => 'dropdown-alerts',
+                                'menu'  => []
+                            ]
+                        ],
+                        [
+                            'class'         => 'dropdown-user',
+                            'icon'          => 'icon-user',
+                            'subMenus'       => [
+                                'class' => 'dropdown-user',
+                                'menu'  => []
                             ]
                         ]
                     ],
-                    'footer'    => '<p>&copy;&nbsp;Reinaldo Krinski&nbsp;2018&nbsp;</p>',
                     'content'   => [
                         'title' => 'Dashboard'
-                    ]
+                    ],
+                    'footer'    => '<p>&copy;&nbsp;Reinaldo Krinski&nbsp;2018&nbsp;</p>'
                 ]
             );
         } catch (\RuntimeException $e) {
