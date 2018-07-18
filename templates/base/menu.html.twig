@@ -1,0 +1,34 @@
+﻿{% macro menu_links(links, dataParent, style) %}
+{% for key, link in links %}
+{% if link.menu|length > 0 %}
+{% set id = random() %}
+					<li class="{{ link.class }}">
+						<a href="{{ link.href }}" data-parent="#{{ dataParent }}" data-toggle="collapse" class="accordion-toggle" data-target="#component-{{ key ~ id  }}">
+							<i class="{{ link.icon }}">&nbsp;</i> {{ link.text }}
+							<span class="pull-right"  style="{{ style }}">
+								<i class="icon-angle-left"></i>
+							</span>
+{% if link.labelClass is defined %}
+							<span class="label {{ link.labelClass }}">{{ link.total }}</span> 
+{% endif %}
+						</a>
+						<ul class="collapse" id="component-{{ key ~ id }}">
+{% import _self as recursive %}
+{{ recursive.menu_links(link.menu, ('component-'~  key ~ id), 'margin-right: 20px;') }}
+						</ul>
+					</li>
+{% else %}
+					<li class="{{ link.class }}">
+						<a href="{{ link.href }}" >
+							<i class="{{ link.icon }}"></i> {{ link.text }}
+						</a>
+					</li>
+{% endif %}
+{% endfor %}
+{% endmacro %}
+{% import _self as macros %}
+				<ul id="menu" class="collapse">
+{% if menu is defined and menu|length > 0 %}
+{{ macros.menu_links(menu, 'menu', '') }}
+{% endif %}
+				</ul>

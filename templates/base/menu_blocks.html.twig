@@ -5,10 +5,32 @@
 												<em>{{ subMenu.info }}</em>
 											</span>
 										</div>
-										<div>
-											{{ subMenu.text }}
+										<div>{{ subMenu.text }}
 											<br />
 											<span class="label {{ subMenu.labelClass }}">{{ subMenu.label }}</span>
 										</div>
 {% endblock %}
-
+{% block block_tasks %}
+										<div>
+											<p>
+												<strong>{{ subMenu.desc }}</strong>
+												<span class="pull-right text-muted">{{ subMenu.info }}</span>
+											</p>
+											<div class="progress progress-striped active">
+												<div class="progress-bar {{ subMenu.labelClass }}" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+													<span class="sr-only">{{ subMenu.label }}</span>
+												</div>
+											</div>
+										</div>
+{% endblock %}
+{% block block_alerts %}
+										<div>
+											<i class="{{ subMenu.icon }}"></i>{{ subMenu.desc }}
+											<span class="pull-right text-muted small">{{ subMenu.info }}</span>
+										</div>
+{% endblock %}
+{% block block_users %}
+										<div>
+											<i class="{{ subMenu.icon }}"></i>{{ subMenu.info }}
+										</div>
+{% endblock %}

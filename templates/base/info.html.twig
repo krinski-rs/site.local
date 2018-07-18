@@ -1,0 +1,32 @@
+			<div id="right">
+{% use "base/info_blocks.html.twig" %}
+{% if attribute(info, 'list') is defined and info.list|length > 0 %}
+				<div class="well well-small">
+					<ul class="list-unstyled">
+{% for key, list in info.list %}
+{% block block_list %}
+{{ parent(list) }}
+{% endblock %}
+{% endfor %}
+					</ul>
+				</div>
+{% endif %}
+{%if attribute(info, 'buttons') is defined and info.buttons|length > 0 %}
+				<div class="well well-small">
+{% for key, button in info.buttons %}
+{% block block_button %}
+{{ parent(button) }}
+{% endblock %}
+{% endfor %}
+				</div>
+{% endif %}
+{%if attribute(info, 'progress') is defined and info.progress|length > 0 %}
+				<div class="well well-small">
+{% for key, progress in info.progress %}
+{% block block_progress %}
+{{ parent(progress) }}
+{% endblock %}
+{% endfor %}
+				</div>
+{% endif %}
+			</div>

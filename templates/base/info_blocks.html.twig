@@ -1,0 +1,18 @@
+{% block block_list %}
+						<li>
+							{{ list.text|raw }}
+							<span>{{ list.info|raw }}</span>
+						</li>
+{% endblock %}
+{% block block_button %}
+					<button class="btn {{ button.class }} btn-block">{{ button.text }}</button>
+{% endblock %}
+{% block block_progress %}
+					<span>{{ progress.text }}</span>
+					<span class="pull-right">
+						<small>{{ progress.percent }}%</small>
+					</span>
+					<div class="progress mini">
+						<div class="progress-bar {{ progress.class }}" style="width: {{ progress.percent }}%"></div>
+					</div>
+{% endblock %}
