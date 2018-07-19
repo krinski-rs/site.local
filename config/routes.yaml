@@ -1,13 +1,16 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
-post_usuario:
-    path: /teste
-    controller: 'App\Controller\TesteController::index'
+login:
+    path: /login
+    controller: 'App\Controller\TesteController::login'
     methods: [POST, GET]
     defaults:
         _format: html
-post_login:
+logout:
+    path: /logout
+    controller: 'App\Controller\TesteController::logout'
+    methods: [POST, GET]
+    defaults:
+        _format: html
+auth:
     path: /auth
     controller: 'App\Controller\TesteController::auth'
     methods: [POST]

@@ -10,14 +10,13 @@ use App\Service\SSO\SSOClient;
 class TesteController extends Controller
 {
     
-    public function index(Request $objRequest)
+    public function login(Request $objRequest)
     {
         try {            
-            $helper = $this->get('security.authentication_utils');
             return $this->render(
                 'login.html.twig',
                 [
-                    'title' => 'xupem pausen'
+                    'title' => 'R&K'
                 ]
             );
         } catch (\RuntimeException $e) {
@@ -30,7 +29,7 @@ class TesteController extends Controller
     public function auth(Request $objRequest)
     {
         try {
-            $objSSOClient = new SSOClient($objRequest);
+            $objSSOClient = $this->get('sso_client');
             return $objSSOClient->login();
         } catch (\RuntimeException $e) {
             return new JsonResponse(['mensagem'=>$e->getMessage()], Response::HTTP_PRECONDITION_FAILED);
@@ -40,13 +39,28 @@ class TesteController extends Controller
         
     }
     
+    public function logout()
+    {
+        
+        try {
+            $objSSOClient = $this->get('sso_client');
+            return $objSSOClient->logout();
+        } catch (\RuntimeException $e) {
+            return new JsonResponse(['mensagem'=>$e->getMessage()], Response::HTTP_PRECONDITION_FAILED);
+        } catch (\Exception $e) {
+            return new JsonResponse(['mensagem'=>$e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+        
+        
+    }
+    
     public function home(Request $objRequest)
     {
         try {
             return $this->render(
                 'site.html.twig',
                 [
-                    'title'     => 'xupem pausen',
+                    'title'     => 'R&K',
                     'top'       => [
                         'logo'  => '/img/logo.png'
                     ],
@@ -180,7 +194,7 @@ class TesteController extends Controller
                                         'icon'  => 'icon-gear',
                                     ],
                                     [
-                                        'href'  => '#',
+                                        'href'  => '/logout',
                                         'info'  => 'Logout',
                                         'icon'  => 'icon-signout',
                                     ]
@@ -728,8 +742,6 @@ class TesteController extends Controller
         } catch (\Exception $e) {
             return new JsonResponse(['mensagem'=>$e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
-        
     }
-
 }
 
