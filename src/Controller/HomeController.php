@@ -210,6 +210,13 @@ class HomeController extends Controller
                     ],
                     'menu'      => [
                         [
+                            'href'  => 'http://pessoa.local.com/home',
+                            'icon'  => 'icon-user',
+                            'text'  => 'Pessoas',
+                            'class'  => 'panel',
+                            'menu'  => []
+                        ],
+                        [
                             'href'  => '/luma',
                             'icon'  => 'icon-list-alt',
                             'text'  => 'LUMA',
