@@ -1,0 +1,50 @@
+post_produto:
+    path: /
+    controller: 'App\Controller\Luma\ProdutoController::postProduto'
+    methods: [POST]
+    defaults:
+        _format: json
+        
+get_produto:
+    path: /{id}
+    controller: 'App\Controller\Luma\ProdutoController::getProduto'
+    methods: [GET]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+get_produtos:
+    path: /
+    controller: 'App\Controller\Luma\ProdutoController::getProdutos'
+    methods: [GET]
+    defaults:
+        _format: json
+        
+delete_produto:
+    path: /{id}
+    controller: 'App\Controller\Luma\ProdutoController::deleteProduto'
+    methods: [DELETE]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+put_produto:
+    path: /{id}
+    controller: 'App\Controller\Luma\ProdutoController::putProduto'
+    methods: [PUT]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+patch_produto:
+    path: /{id}
+    controller: 'App\Controller\Luma\ProdutoController::patchProduto'
+    methods: [PATCH]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        

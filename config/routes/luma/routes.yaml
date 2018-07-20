@@ -1,0 +1,3 @@
+api_luma_produto:
+    prefix: /produto
+    resource: './produto/routes.yaml'

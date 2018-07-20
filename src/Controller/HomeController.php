@@ -5,9 +5,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use App\Service\SSO\SSOClient;
 
-class TesteController extends Controller
+class HomeController extends Controller
 {
     
     public function login(Request $objRequest)
@@ -211,9 +210,9 @@ class TesteController extends Controller
                     ],
                     'menu'      => [
                         [
-                            'href'  => '#',
-                            'icon'  => 'icon-table',
-                            'text'  => 'Dashboard',
+                            'href'  => '/luma',
+                            'icon'  => 'icon-list-alt',
+                            'text'  => 'LUMA',
                             'class'  => 'panel',
                             'menu'  => []
                         ],

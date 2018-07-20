@@ -1,22 +1,29 @@
 login:
     path: /login
-    controller: 'App\Controller\TesteController::login'
+    controller: 'App\Controller\HomeController::login'
     methods: [POST, GET]
     defaults:
         _format: html
 logout:
     path: /logout
-    controller: 'App\Controller\TesteController::logout'
+    controller: 'App\Controller\HomeController::logout'
     methods: [POST, GET]
     defaults:
         _format: html
 auth:
     path: /auth
-    controller: 'App\Controller\TesteController::auth'
+    controller: 'App\Controller\HomeController::auth'
     methods: [POST]
     
 home:
     path: /home
-    controller: 'App\Controller\TesteController::home'
+    controller: 'App\Controller\HomeController::home'
     methods: [GET]
-        
+api_luma:
+    prefix: /api/luma
+    resource: './routes/luma/routes.yaml'
+luma:
+    path: /luma
+    controller: 'App\Controller\Luma\HomeController::index'
+    methods: [GET]
+    
